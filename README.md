@@ -5,6 +5,7 @@
 [bitcoin example using flask-socketio](https://medium.com/the-research-nest/how-to-log-data-in-real-time-on-a-web-page-using-flask-socketio-in-python-fb55f9dad100)  
 [flask-socketio](https://flask-socketio.readthedocs.io/en/latest/)  
 [slider example](https://medium.com/@abhishekchaudhary_28536/building-apps-using-flask-socketio-and-javascript-socket-io-part-1-ae448768643)  
+[Flask-SocketIO, Background Threads , Jquery, Python Demo](http://timmyreilly.azurewebsites.net/flask-socketio-and-more/)  
 
 [ubxtool examples](https://gpsd.gitlab.io/gpsd/ubxtool-examples.html)  
 [adafruit gps example](https://learn.adafruit.com/adafruit-ultimate-gps-on-the-raspberry-pi/using-your-gps)  
