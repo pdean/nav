@@ -7,6 +7,7 @@
 [slider example](https://medium.com/@abhishekchaudhary_28536/building-apps-using-flask-socketio-and-javascript-socket-io-part-1-ae448768643)  
 [Flask-SocketIO, Background Threads , Jquery, Python Demo](http://timmyreilly.azurewebsites.net/flask-socketio-and-more/)  
 [A Software Engineer Learns HTML5, JavaScript and jQuery](http://www.asoftwareengineerlearns.com/publishing.html)  
+[printing dict data](https://pybit.es/articles/flask-for-loop/)
 
 [ubxtool examples](https://gpsd.gitlab.io/gpsd/ubxtool-examples.html)  
 [adafruit gps example](https://learn.adafruit.com/adafruit-ultimate-gps-on-the-raspberry-pi/using-your-gps)  
