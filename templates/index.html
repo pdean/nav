@@ -12,15 +12,29 @@
                 socket.emit('my event', {data: 'I\'m connected!'});
             });
             
-            socket.on('message', function(msg){
-                $('#test').html('<p>' + msg.time + '</p>');             
+            socket.on('time', function(msg){
+                $('#time').text(msg.time);
             });
-          
+
+            socket.on('gps', function(msg){
+                $('#gps').text(msg.time);
+            });
+
+            socket.on('response', function(msg, cb) {
+                $('#log').append('<br>' + $('<div/>').text('Received #' + msg.count + ': ' + msg.data).html());
+                if (cb)
+                    cb();
+            });
         });
     </script>
 </head>
 <body>
     <h3>Demo-Flask-SocketIO</h3>
-    <p id='test'> Hello </p>
+    <p>
+    System Time: <b><span id="time"></span></b><br>
+    GPS Time: <b><span id="gps"></span></b><br>
+    </p>
+    <h2>log:</h2>
+    <div id="log"></div>
 </body>
 </html>

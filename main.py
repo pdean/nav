@@ -6,22 +6,39 @@ from threading import Lock
 from flask import Flask, render_template, session, request
 from flask_socketio import SocketIO, emit, join_room, disconnect
 
+import gps
 
 app = Flask(__name__)
 app.debug = True
 app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app)
-thread = None
+timethread = None
+gpsthread = None
 thread_lock = Lock()
+# Listen on port 2947 (gpsd) of localhost
+session = gps.gps()
+session.stream(gps.WATCH_ENABLE | gps.WATCH_NEWSTYLE)
 
-def background_thread():
-    print('started background task')
+
+def time_thread():
+    print('started timer')
     while True:
         socketio.sleep(1)
         now = datetime.now()
         t = now.strftime("%H:%M:%S")
-        socketio.emit('message', {'data': 'This is data', 'time': t})
+        socketio.emit('time', {'time': t})
 
+def gps_thread():
+    global session
+    print('started gps')
+    while True:
+        report = session.next()
+        # Wait for a 'TPV' report and display the current time
+        # To see all report data, uncomment the line below
+        # print(report)
+        if report['class'] == 'TPV':
+            if hasattr(report, 'time'):
+                socketio.emit('gps', {'time': report.time})
 
 @app.route('/')
 def index():
@@ -33,17 +50,18 @@ def my_event(msg):
 
 @socketio.event
 def connect():
-    global thread
+    global timethread, gpsthread
     with thread_lock:
-        if thread is None:
-            thread = socketio.start_background_task(background_thread)
-    emit('my_response', {'data': 'Connected', 'count': 0})    
-
+        if timethread is None:
+            timethread = socketio.start_background_task(time_thread)
+    with thread_lock:
+        if gpsthread is None:
+            gpsthread = socketio.start_background_task(gps_thread)
+    emit('response', {'data': 'Connected', 'count': 0})    
 
 @socketio.on('disconnect')
 def test_disconnect():
     print('Client disconnected')
-	
 	
 if __name__ == '__main__':
     socketio.run(app)
