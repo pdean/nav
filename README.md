@@ -1,6 +1,11 @@
 # nav
 
 ## links
+
+[cacheberry-pi](https://github.com/jclement/Cacheberry-Pi)  
+[another ...](https://www.neighborgeek.net/2013/03/cacheberry-pi.html?m=1)  
+[more ...](https://forums.raspberrypi.com/viewtopic.php?t=65457)  
+
 [easy websockets with flask](https://blog.miguelgrinberg.com/post/easy-websockets-with-flask-and-gevent)  
 [bitcoin example using flask-socketio](https://medium.com/the-research-nest/how-to-log-data-in-real-time-on-a-web-page-using-flask-socketio-in-python-fb55f9dad100)  
 [flask-socketio](https://flask-socketio.readthedocs.io/en/latest/)  
