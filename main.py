@@ -15,9 +15,6 @@ socketio = SocketIO(app)
 timethread = None
 gpsthread = None
 thread_lock = Lock()
-# Listen on port 2947 (gpsd) of localhost
-session = gps.gps()
-session.stream(gps.WATCH_ENABLE | gps.WATCH_NEWSTYLE)
 
 
 def time_thread():
@@ -29,7 +26,9 @@ def time_thread():
         socketio.emit('time', {'time': t})
 
 def gps_thread():
-    global session
+    # Listen on port 2947 (gpsd) of localhost
+    session = gps.gps()
+    session.stream(gps.WATCH_ENABLE | gps.WATCH_NEWSTYLE)
     print('started gps')
     while True:
         report = session.next()

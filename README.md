@@ -10,5 +10,12 @@
 [printing dict data](https://pybit.es/articles/flask-for-loop/)
 
 [ubxtool examples](https://gpsd.gitlab.io/gpsd/ubxtool-examples.html)  
+[gpsd python example](https://gpsd.gitlab.io/gpsd/gpsd-client-example-code.html#_example_2python)  
 [adafruit gps example](https://learn.adafruit.com/adafruit-ultimate-gps-on-the-raspberry-pi/using-your-gps)  
+
 [adafruit lcd example](https://github.com/adafruit/Adafruit_Learning_System_Guides/tree/main/Drive_a_16x2_LCD_with_the_Raspberry_Pi)  
+
+
+## notes
+
+
