@@ -13,6 +13,7 @@
 [Flask-SocketIO, Background Threads , Jquery, Python Demo](http://timmyreilly.azurewebsites.net/flask-socketio-and-more/)  
 [A Software Engineer Learns HTML5, JavaScript and jQuery](http://www.asoftwareengineerlearns.com/publishing.html)  
 [printing dict data](https://pybit.es/articles/flask-for-loop/)
+[eventlet monkey patch](https://github.com/miguelgrinberg/Flask-SocketIO/issues/349)  
 
 [ubxtool examples](https://gpsd.gitlab.io/gpsd/ubxtool-examples.html)  
 [gpsd python example](https://gpsd.gitlab.io/gpsd/gpsd-client-example-code.html#_example_2python)  
