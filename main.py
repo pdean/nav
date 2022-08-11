@@ -37,7 +37,13 @@ def gps_thread():
         # print(report)
         if report['class'] == 'TPV':
             if hasattr(report, 'time'):
-                socketio.emit('gps', {'time': report.time})
+                data = {'time': report.time,
+                        'lat': report.lat,
+                        'lon': report.lon,
+                        'track': report.track,
+                        'speed': report.speed}
+                with app.app_context():
+                    socketio.emit('gps', render_template('gps.html', data=data))
 
 @app.route('/')
 def index():

@@ -18,7 +18,7 @@
             });
 
             socket.on('gps', function(msg){
-                $('#gps').text(msg.time);
+                $('#gps').html(msg);
             });
 
             socket.on('response', function(msg, cb) {
@@ -33,8 +33,8 @@
 <body>
     <h2>nav</h2>
     <p>
-    System Time: <b><span id="time"></span></b><br>
-    GPS Time: <b><span id="gps"></span></b><br>
+    System Time: <b><span id="time"></span></b> <br>
+    GPS: <div id="gps"></div>
     </p>
     <h2>log:</h2>
     <div id="log"></div>
