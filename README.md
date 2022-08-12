@@ -16,6 +16,7 @@
 [eventlet monkey patch](https://github.com/miguelgrinberg/Flask-SocketIO/issues/349)  
 
 [ubxtool examples](https://gpsd.gitlab.io/gpsd/ubxtool-examples.html)  
+[gpsd json](https://gpsd.gitlab.io/gpsd/gpsd_json.html)  
 [gpsd python example](https://gpsd.gitlab.io/gpsd/gpsd-client-example-code.html#_example_2python)  
 [adafruit gps example](https://learn.adafruit.com/adafruit-ultimate-gps-on-the-raspberry-pi/using-your-gps)  
 
