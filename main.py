@@ -1,19 +1,14 @@
 #main.py
-try:
-    from eventlet import monkey_patch as monkey_patch
-    monkey_patch()
-except ImportError:
-    try:
-        from gevent.monkey import patch_all
-        patch_all()
-    except ImportError:
-        pass
+import eventlet
+eventlet.monkey_patch()
 
 from datetime import datetime
 from threading import Thread
 from threading import Lock
-from flask import Flask, render_template, session, request
-from flask_socketio import SocketIO, emit, join_room, disconnect
+from flask import Flask, render_template, session, request, \
+    copy_current_request_context
+from flask_socketio import SocketIO, emit, join_room, leave_room, \
+    close_room, rooms, disconnect
 import gps
 
 async_mode = None
@@ -69,6 +64,7 @@ def connect():
     with thread_lock:
         if timethread is None:
             timethread = socketio.start_background_task(time_thread)
+    with thread_lock:
         if gpsthread is None:
             gpsthread = socketio.start_background_task(gps_thread)
     emit('response', {'data': 'Connected', 'count': 0})    
